@@ -47,6 +47,7 @@ internal data class DocumentsItem(
 ) : DataToDomainMapper<Document> {
 
 	override fun toDto(): Document = Document(
+		isbn = isbn ?: "",
 		thumbnail = thumbnail ?: "",
 		title = title ?: "",
 		contents = contents ?: "",
