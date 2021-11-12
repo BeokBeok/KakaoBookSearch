@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="publisher_and_date">%1$s | %2$s</string>
+    <string name="price_and_sale_percent">%1$d원 (%2$d%% 할인)</string>
+</resources>
