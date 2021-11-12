@@ -2,8 +2,10 @@ package com.beok.search.data.remote
 
 import com.beok.search.data.entity.BooksResponse
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import java.io.File
+import java.util.Date
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -24,6 +26,7 @@ internal class BookSearchAPITest {
         moshi = Moshi
             .Builder()
             .add(KotlinJsonAdapterFactory())
+            .add(Date::class.java, Rfc3339DateJsonAdapter())
             .build()
         api = Retrofit
             .Builder()

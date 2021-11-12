@@ -2,12 +2,13 @@ package com.beok.search.data.entity
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.util.Date
 
 @JsonClass(generateAdapter = true)
 internal data class DocumentsItem(
 
 	@Json(name="datetime")
-	val datetime: String? = null,
+	val datetime: Date? = null,
 
 	@Json(name="thumbnail")
 	val thumbnail: String? = null,
