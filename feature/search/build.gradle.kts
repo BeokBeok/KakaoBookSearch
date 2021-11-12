@@ -12,4 +12,8 @@ android {
 }
 
 dependencies {
+    Network.run {
+        implementation(RETROFIT)
+        implementation(CONVERTER_MOSHI)
+    }
 }
