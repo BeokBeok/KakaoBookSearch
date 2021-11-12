@@ -21,3 +21,12 @@ object Network {
     const val RETROFIT = "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
     const val CONVERTER_MOSHI = "com.squareup.retrofit2:converter-moshi:$RETROFIT_VERSION"
 }
+
+object JUnit {
+    private const val VERSION = "5.8.1"
+
+    const val JUPITER_API = "org.junit.jupiter:junit-jupiter-api:$VERSION"
+    const val JUPITER_ENGINE = "org.junit.jupiter:junit-jupiter-engine:$VERSION"
+
+    const val ASSERTJ_CORE = "org.assertj:assertj-core:3.21.0"
+}
