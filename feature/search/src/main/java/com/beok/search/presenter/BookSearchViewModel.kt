@@ -19,6 +19,9 @@ internal class BookSearchViewModel @Inject constructor(
     private val _document = MutableLiveData<List<DocumentVO>>()
     val document: LiveData<List<DocumentVO>> get() = _document
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> get() = _isLoading
+
     private var page: Int = 1
     private var isEnd: Boolean = false
 
@@ -26,25 +29,35 @@ internal class BookSearchViewModel @Inject constructor(
         bookName: String,
         isNext: Boolean = false
     ) = viewModelScope.launch {
-        if (isEnd) return@launch
-        if (isNext) {
-            ++page
-        } else {
+        if (!isNext) {
             _document.value = emptyList()
             page = 1
+            isEnd = false
         }
+        if (isEnd) return@launch
+
+        showLoading()
         bookTitleSearchUseCase
             .execute(
                 param = BookTitleSearchUseCaseImpl.Param(
                     query = bookName,
-                    page = page
+                    page = if (isNext) ++page else page
                 )
             )
             .onSuccess {
+                hideLoading()
                 _document.value = (_document.value ?: emptyList()).plus(
                     it.document.map(DocumentVO::fromDomain)
                 )
                 isEnd = it.isEnd
             }
+    }
+
+    private fun hideLoading() {
+        _isLoading.value = false
+    }
+
+    private fun showLoading() {
+        _isLoading.value = true
     }
 }

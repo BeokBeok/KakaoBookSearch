@@ -27,9 +27,14 @@ class BookSearchFragment : BaseFragment<FragmentBookSearchBinding>(R.layout.frag
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupBinding()
         setupUI()
         setupListener()
         showContent()
+    }
+
+    private fun setupBinding() {
+        binding.viewModel = viewModel
     }
 
     private fun setupListener() {
