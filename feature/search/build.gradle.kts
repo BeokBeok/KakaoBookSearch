@@ -36,6 +36,11 @@ dependencies {
         kapt(COMPILER)
     }
 
+    Glide.run {
+        implementation(CORE)
+        kapt(COMPILER)
+    }
+
     JUnit.run {
         testImplementation(JUPITER_API)
         testRuntimeOnly(JUPITER_ENGINE)

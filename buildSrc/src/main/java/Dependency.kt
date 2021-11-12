@@ -57,3 +57,10 @@ object Hilt {
     const val ANDROID = "com.google.dagger:hilt-android:$VERSION"
     const val COMPILER = "com.google.dagger:hilt-compiler:$VERSION"
 }
+
+object Glide {
+    private const val VERSION = "4.12.0"
+
+    const val CORE = "com.github.bumptech.glide:glide:$VERSION"
+    const val COMPILER = "com.github.bumptech.glide:compiler:$VERSION"
+}
