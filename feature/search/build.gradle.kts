@@ -22,6 +22,13 @@ dependencies {
         implementation(CONVERTER_MOSHI)
     }
 
+    Moshi.run {
+        implementation(KOTLIN)
+        implementation(Moshi.KOTLIN_CODEGEN)
+    }
+
+    implementation(Coroutines.CORE)
+
     JUnit.run {
         testImplementation(JUPITER_API)
         testRuntimeOnly(JUPITER_ENGINE)
