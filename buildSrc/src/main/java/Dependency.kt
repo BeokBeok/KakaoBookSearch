@@ -39,6 +39,7 @@ object Moshi {
     private const val VERSION = "1.12.0"
 
     const val KOTLIN = "com.squareup.moshi:moshi-kotlin:$VERSION"
+    const val ADAPTERS = "com.squareup.moshi:moshi-adapters:$VERSION"
     const val KOTLIN_CODEGEN = "com.squareup.moshi:moshi-kotlin-codegen:$VERSION"
 }
 

@@ -24,7 +24,8 @@ dependencies {
 
     Moshi.run {
         implementation(KOTLIN)
-        implementation(Moshi.KOTLIN_CODEGEN)
+        implementation(KOTLIN_CODEGEN)
+        implementation(ADAPTERS)
     }
 
     implementation(Coroutines.CORE)
