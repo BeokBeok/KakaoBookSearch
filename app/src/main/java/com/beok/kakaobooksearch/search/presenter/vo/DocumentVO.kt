@@ -1,6 +1,6 @@
 package com.beok.kakaobooksearch.search.presenter.vo
 
-import com.beok.common.util.DateConverter
+import com.beok.kakaobooksearch.util.DateConverter
 import com.beok.kakaobooksearch.search.domain.model.Document
 
 internal data class DocumentVO(

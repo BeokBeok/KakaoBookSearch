@@ -36,9 +36,25 @@ android {
 }
 
 dependencies {
-    implementation(project(":common"))
+    Network.run {
+        implementation(RETROFIT)
+        implementation(CONVERTER_MOSHI)
+    }
+
+    Moshi.run {
+        implementation(KOTLIN)
+        implementation(KOTLIN_CODEGEN)
+        implementation(ADAPTERS)
+    }
+
+    implementation(Coroutines.CORE)
+
+    implementation(Google.MATERIAL)
 
     AndroidX.run {
+        implementation(CORE_KTX)
+        implementation(APPCOMPAT)
+        implementation(CONSTRAINT_LAYOUT)
         implementation(FRAGMENT_KTX)
         implementation(LIFECYCLE_RUNTIME_KTX)
         testImplementation(CORE_TESTING)

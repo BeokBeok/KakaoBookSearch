@@ -1,6 +1,6 @@
 package com.beok.kakaobooksearch.search.data.entity
 
-import com.beok.common.mapper.DataToDomainMapper
+import com.beok.kakaobooksearch.mapper.DataToDomainMapper
 import com.beok.kakaobooksearch.search.domain.model.Document
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

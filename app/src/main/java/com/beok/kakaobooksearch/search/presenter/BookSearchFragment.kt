@@ -6,13 +6,14 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.beok.common.base.BaseFragment
-import com.beok.common.base.BaseListAdapter
+import com.beok.kakaobooksearch.base.BaseFragment
+import com.beok.kakaobooksearch.base.BaseListAdapter
 import com.beok.kakaobooksearch.BR
 import com.beok.kakaobooksearch.R
 import com.beok.kakaobooksearch.databinding.FragmentBookSearchBinding
 import com.beok.kakaobooksearch.ext.launchAndRepeatOnLifecycle
 import com.beok.kakaobooksearch.ext.textChanges
+import com.beok.kakaobooksearch.search.presenter.vo.DocumentVO
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.debounce
@@ -60,11 +61,11 @@ class BookSearchFragment : BaseFragment<FragmentBookSearchBinding>(R.layout.frag
             layoutResourceID = R.layout.recycler_view_item_book,
             bindingID = BR.item,
             viewModel = mapOf(BR.viewModel to viewModel),
-            diffUtil = object : DiffUtil.ItemCallback<com.beok.kakaobooksearch.search.presenter.vo.DocumentVO>() {
-                override fun areItemsTheSame(oldItem: com.beok.kakaobooksearch.search.presenter.vo.DocumentVO, newItem: com.beok.kakaobooksearch.search.presenter.vo.DocumentVO): Boolean =
+            diffUtil = object : DiffUtil.ItemCallback<DocumentVO>() {
+                override fun areItemsTheSame(oldItem: DocumentVO, newItem: DocumentVO): Boolean =
                     oldItem.isbn == newItem.isbn
 
-                override fun areContentsTheSame(oldItem: com.beok.kakaobooksearch.search.presenter.vo.DocumentVO, newItem: com.beok.kakaobooksearch.search.presenter.vo.DocumentVO): Boolean =
+                override fun areContentsTheSame(oldItem: DocumentVO, newItem: DocumentVO): Boolean =
                     oldItem == newItem
             }
         ).apply {

@@ -1,4 +1,4 @@
-package com.beok.common.util
+package com.beok.kakaobooksearch.util
 
 import java.text.SimpleDateFormat
 import java.util.Date

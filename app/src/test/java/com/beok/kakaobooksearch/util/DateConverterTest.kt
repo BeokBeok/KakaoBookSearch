@@ -1,4 +1,4 @@
-package com.beok.common.util
+package com.beok.kakaobooksearch.util
 
 import java.util.Date
 import org.assertj.core.api.Assertions.assertThat
@@ -10,7 +10,7 @@ internal class DateConverterTest {
     fun `Date를 yyyy년 MM월로 변환합니다`() {
         val date = Date(1636721041983) // 2021-11-12
         val expected = "2021년 11월"
-        val actual = DateConverter.toYYYYMM(date)
+        val actual = com.beok.kakaobooksearch.util.DateConverter.toYYYYMM(date)
 
         assertThat(actual).isEqualTo(expected)
     }

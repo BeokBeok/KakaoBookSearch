@@ -1,4 +1,4 @@
-package com.beok.common.base
+package com.beok.kakaobooksearch.base
 
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes

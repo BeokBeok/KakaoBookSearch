@@ -1,4 +1,4 @@
-package com.beok.common.base
+package com.beok.kakaobooksearch.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

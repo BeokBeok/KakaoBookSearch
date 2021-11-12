@@ -1,4 +1,4 @@
-package com.beok.common.mapper
+package com.beok.kakaobooksearch.mapper
 
 interface DataToDomainMapper<T> {
     fun toDto(): T
