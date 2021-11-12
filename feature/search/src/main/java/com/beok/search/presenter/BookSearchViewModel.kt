@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.beok.search.domain.model.Document
 import com.beok.search.domain.usecase.BookTitleSearchUseCase
 import com.beok.search.domain.usecase.BookTitleSearchUseCaseImpl
+import com.beok.search.presenter.vo.DocumentVO
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.launch
@@ -16,25 +16,48 @@ internal class BookSearchViewModel @Inject constructor(
     private val bookTitleSearchUseCase: BookTitleSearchUseCase
 ) : ViewModel() {
 
-    private val _document = MutableLiveData<List<Document>>()
-    val document: LiveData<List<Document>> get() = _document
+    private val _document = MutableLiveData<List<DocumentVO>>()
+    val document: LiveData<List<DocumentVO>> get() = _document
+
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> get() = _isLoading
+
+    private var page: Int = 1
+    private var isEnd: Boolean = false
 
     fun searchByBookName(
         bookName: String,
-        page: Int = 1
+        isNext: Boolean = false
     ) = viewModelScope.launch {
+        if (!isNext) {
+            _document.value = emptyList()
+            page = 1
+            isEnd = false
+        }
+        if (isEnd) return@launch
+
+        showLoading()
         bookTitleSearchUseCase
             .execute(
                 param = BookTitleSearchUseCaseImpl.Param(
                     query = bookName,
-                    page = page
+                    page = if (isNext) ++page else page
                 )
             )
             .onSuccess {
-                _document.value = it.document
+                hideLoading()
+                _document.value = (_document.value ?: emptyList()).plus(
+                    it.document.map(DocumentVO::fromDomain)
+                )
+                isEnd = it.isEnd
             }
-            .onFailure {
+    }
 
-            }
+    private fun hideLoading() {
+        _isLoading.value = false
+    }
+
+    private fun showLoading() {
+        _isLoading.value = true
     }
 }

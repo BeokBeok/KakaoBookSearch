@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.beok.search.presenter.BookSearchViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +17,7 @@
             android:id="@+id/et_book_search"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="책 이름을 입력하세요"
+            android:hint="@string/hint_book_name_input"
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
             android:inputType="text"
@@ -32,5 +35,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_book_search" />
 
+        <ProgressBar
+            bind_isVisible="@{viewModel.isLoading}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
