@@ -3,7 +3,7 @@ package com.beok.common.interceptor
 import okhttp3.Interceptor
 import okhttp3.Response
 
-object KakaoInterceptor : Interceptor {
+internal object KakaoInterceptor : Interceptor {
 
     private const val HEADER_NAME = "Authorization"
     private const val HEADER_VALUE_PREFIX = "KakaoAK "
