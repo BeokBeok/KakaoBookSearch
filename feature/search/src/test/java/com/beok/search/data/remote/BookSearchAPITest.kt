@@ -13,11 +13,11 @@ import org.junit.jupiter.api.Test
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-internal class BookSearchServiceTest {
+internal class BookSearchAPITest {
 
     private val mockServer = MockWebServer()
     private lateinit var moshi: Moshi
-    private lateinit var service: BookSearchService
+    private lateinit var api: BookSearchAPI
 
     @BeforeEach
     fun setup() {
@@ -25,13 +25,13 @@ internal class BookSearchServiceTest {
             .Builder()
             .add(KotlinJsonAdapterFactory())
             .build()
-        service = Retrofit
+        api = Retrofit
             .Builder()
             .baseUrl(mockServer.url(""))
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
 
-            .create(BookSearchService::class.java)
+            .create(BookSearchAPI::class.java)
     }
 
     @Test
@@ -41,7 +41,7 @@ internal class BookSearchServiceTest {
         val response = MockResponse().setBody(json)
         mockServer.enqueue(response)
 
-        val actual = service.searchBookByTitle(query = query)
+        val actual = api.searchBookByTitle(query = query)
         val expected = moshi
             .adapter(BooksResponse::class.java)
             .fromJson(json)

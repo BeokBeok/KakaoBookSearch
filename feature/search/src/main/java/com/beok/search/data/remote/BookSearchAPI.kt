@@ -4,7 +4,7 @@ import com.beok.search.data.entity.BooksResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-internal interface BookSearchService {
+internal interface BookSearchAPI {
 
     @GET("v3/search/book")
     suspend fun searchBookByTitle(
