@@ -34,3 +34,10 @@ object JUnit {
 object Mock {
     const val WEB_SERVER = "com.squareup.okhttp3:mockwebserver:4.9.2"
 }
+
+object Moshi {
+    private const val VERSION = "1.12.0"
+
+    const val KOTLIN = "com.squareup.moshi:moshi-kotlin:$VERSION"
+    const val KOTLIN_CODEGEN = "com.squareup.moshi:moshi-kotlin-codegen:$VERSION"
+}
