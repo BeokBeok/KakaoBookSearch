@@ -2,6 +2,8 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("de.mannodermaus.android-junit5")
+
 }
 
 android {
@@ -9,6 +11,10 @@ android {
 
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    testOptions {
+        unitTests.isReturnDefaultValues = true
     }
 
     buildFeatures {
@@ -37,4 +43,10 @@ dependencies {
     }
 
     api(Google.MATERIAL)
+
+    JUnit.run {
+        testImplementation(JUPITER_API)
+        testRuntimeOnly(JUPITER_ENGINE)
+        testImplementation(ASSERTJ_CORE)
+    }
 }
