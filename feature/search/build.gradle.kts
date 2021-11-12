@@ -28,6 +28,7 @@ dependencies {
     AndroidX.run {
         implementation(FRAGMENT_KTX)
         implementation(LIFECYCLE_RUNTIME_KTX)
+        testImplementation(CORE_TESTING)
     }
 
     Hilt.run {
