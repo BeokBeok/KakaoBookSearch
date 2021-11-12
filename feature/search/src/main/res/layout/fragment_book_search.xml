@@ -14,7 +14,7 @@
             android:id="@+id/et_book_search"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="책 이름을 입력하세요"
+            android:hint="@string/hint_book_name_input"
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
             android:inputType="text"
@@ -33,4 +33,5 @@
             app:layout_constraintTop_toBottomOf="@id/et_book_search" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
