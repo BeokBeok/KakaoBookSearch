@@ -3,6 +3,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("de.mannodermaus.android-junit5")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -23,6 +24,16 @@ android {
 
 dependencies {
     implementation(project(":common"))
+
+    AndroidX.run {
+        implementation(FRAGMENT_KTX)
+        implementation(LIFECYCLE_RUNTIME_KTX)
+    }
+
+    Hilt.run {
+        implementation(ANDROID)
+        kapt(COMPILER)
+    }
 
     JUnit.run {
         testImplementation(JUPITER_API)

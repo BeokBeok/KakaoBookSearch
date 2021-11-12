@@ -2,7 +2,6 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -30,11 +29,6 @@ dependencies {
     }
 
     api(Coroutines.CORE)
-
-    Hilt.run {
-        api(ANDROID)
-        kapt(COMPILER)
-    }
 
     AndroidX.run {
         api(CORE_KTX)
