@@ -2,8 +2,6 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("de.mannodermaus.android-junit5")
-    kotlin("kapt")
-    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -19,23 +17,7 @@ android {
 }
 
 dependencies {
-    Network.run {
-        implementation(RETROFIT)
-        implementation(CONVERTER_MOSHI)
-    }
-
-    Moshi.run {
-        implementation(KOTLIN)
-        implementation(KOTLIN_CODEGEN)
-        implementation(ADAPTERS)
-    }
-
-    implementation(Coroutines.CORE)
-
-    Hilt.run {
-        implementation(ANDROID)
-        kapt(COMPILER)
-    }
+    implementation(project(":common"))
 
     JUnit.run {
         testImplementation(JUPITER_API)

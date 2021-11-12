@@ -1,8 +1,6 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    kotlin("kapt")
-    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -27,6 +25,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":common"))
+    implementation(project(":feature:search"))
+
     AndroidX.run {
         implementation(CORE_KTX)
         implementation(APPCOMPAT)
@@ -38,10 +39,5 @@ dependencies {
     Navigation.run {
         implementation(FRAGMENT_KTX)
         implementation(UI_KTX)
-    }
-
-    Hilt.run {
-        implementation(ANDROID)
-        kapt(COMPILER)
     }
 }
