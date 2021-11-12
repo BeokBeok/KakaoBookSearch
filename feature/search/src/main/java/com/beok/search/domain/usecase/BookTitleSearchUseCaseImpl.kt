@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 internal class BookTitleSearchUseCaseImpl @Inject constructor(
     private val bookSearchRepository: BookSearchRepository
-) : BookTitleSearchUseCase<BookTitleSearchUseCaseImpl.Param> {
+) : BookTitleSearchUseCase {
 
     override suspend fun execute(param: Param): Result<Book> = runCatching {
         bookSearchRepository.searchBookByTitle(title = param.query, page = param.page)

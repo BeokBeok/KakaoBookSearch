@@ -14,6 +14,7 @@ internal interface BookSearchRepository {
             isEnd = false,
             document = listOf(
                 Document(
+                    isbn = "식별자",
                     datetime = Date(1636642800), // 2021-11-12 00:00:00,
                     thumbnail = "썸네일 URL",
                     contents = "컨텐츠",

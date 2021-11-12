@@ -16,6 +16,6 @@ internal abstract class UseCaseModule {
     @Singleton
     abstract fun bindsBookTitleSearchUseCase(
         impl: BookTitleSearchUseCaseImpl
-    ): BookTitleSearchUseCase<BookTitleSearchUseCaseImpl.Param>
+    ): BookTitleSearchUseCase
 }
 

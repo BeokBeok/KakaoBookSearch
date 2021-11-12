@@ -1,7 +1,9 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
+    id("kotlin-kapt")
     id("de.mannodermaus.android-junit5")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -14,10 +16,25 @@ android {
     testOptions {
         unitTests.isReturnDefaultValues = true
     }
+
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {
     implementation(project(":common"))
+
+    AndroidX.run {
+        implementation(FRAGMENT_KTX)
+        implementation(LIFECYCLE_RUNTIME_KTX)
+        testImplementation(CORE_TESTING)
+    }
+
+    Hilt.run {
+        implementation(ANDROID)
+        kapt(COMPILER)
+    }
 
     JUnit.run {
         testImplementation(JUPITER_API)
@@ -25,5 +42,8 @@ dependencies {
         testImplementation(ASSERTJ_CORE)
     }
 
-    testImplementation(Mock.WEB_SERVER)
+    Mock.run {
+        testImplementation(WEB_SERVER)
+        testImplementation(K)
+    }
 }

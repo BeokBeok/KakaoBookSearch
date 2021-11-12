@@ -2,6 +2,9 @@ object AndroidX {
     const val CORE_KTX = "androidx.core:core-ktx:1.7.0"
     const val APPCOMPAT = "androidx.appcompat:appcompat:1.3.1"
     const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:2.1.1"
+    const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:1.3.6"
+    const val LIFECYCLE_RUNTIME_KTX = "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0"
+    const val CORE_TESTING = "androidx.arch.core:core-testing:2.1.0"
 }
 
 object Google {
@@ -33,6 +36,7 @@ object JUnit {
 
 object Mock {
     const val WEB_SERVER = "com.squareup.okhttp3:mockwebserver:4.9.2"
+    const val K = "io.mockk:mockk:1.12.0"
 }
 
 object Moshi {
