@@ -46,3 +46,10 @@ object Moshi {
 object Coroutines {
     const val CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
 }
+
+object Hilt {
+    const val VERSION = "2.40"
+
+    const val ANDROID = "com.google.dagger:hilt-android:$VERSION"
+    const val COMPILER = "com.google.dagger:hilt-compiler:$VERSION"
+}

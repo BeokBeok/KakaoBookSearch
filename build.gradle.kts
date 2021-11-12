@@ -9,6 +9,7 @@ buildscript {
         classpath(ProjectConfig.GRADLE)
         classpath(ProjectConfig.KOTLIN_GRADLE_PLUGIN)
         classpath(ProjectConfig.ANDROID_JUNIT5)
+        classpath(ProjectConfig.HILT_ANDROID_GRADLE_PLUGIN)
     }
 }
 

@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -36,5 +38,10 @@ dependencies {
     Navigation.run {
         implementation(FRAGMENT_KTX)
         implementation(UI_KTX)
+    }
+
+    Hilt.run {
+        implementation(ANDROID)
+        kapt(COMPILER)
     }
 }

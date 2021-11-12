@@ -2,6 +2,8 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("de.mannodermaus.android-junit5")
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -29,6 +31,11 @@ dependencies {
     }
 
     implementation(Coroutines.CORE)
+
+    Hilt.run {
+        implementation(ANDROID)
+        kapt(COMPILER)
+    }
 
     JUnit.run {
         testImplementation(JUPITER_API)
