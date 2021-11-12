@@ -54,13 +54,12 @@ class BookSearchFragment : BaseFragment<FragmentBookSearchBinding>(R.layout.frag
     private fun showContent() {
         launchAndRepeatOnLifecycle(
             scope = lifecycleScope,
-            owner = this
+            owner = viewLifecycleOwner
         ) {
             binding.etBookSearch
                 .textChanges()
                 .filterNot(CharSequence?::isNullOrBlank)
                 .debounce(300)
-                .distinctUntilChanged()
                 .collectLatest {
                     viewModel.searchByBookName(it?.toString() ?: "")
                 }
