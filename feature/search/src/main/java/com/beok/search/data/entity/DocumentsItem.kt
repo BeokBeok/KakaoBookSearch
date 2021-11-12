@@ -40,7 +40,7 @@ internal data class DocumentsItem(
 	val url: String? = null,
 
 	@Json(name="authors")
-	val authors: List<String?>? = null,
+	val authors: List<String>? = null,
 
 	@Json(name="status")
 	val status: String? = null
@@ -50,8 +50,10 @@ internal data class DocumentsItem(
 		isbn = isbn ?: "",
 		thumbnail = thumbnail ?: "",
 		title = title ?: "",
-		contents = contents ?: "",
+		authors = authors ?: emptyList(),
+		publisher = publisher ?: "",
+		datetime = datetime ?: Date(0),
+		salePrice = salePrice ?: 0,
 		price = price ?: 0,
-		datetime = datetime ?: Date(0)
 	)
 }

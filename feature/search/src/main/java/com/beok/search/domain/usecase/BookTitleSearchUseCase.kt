@@ -18,11 +18,13 @@ internal interface BookTitleSearchUseCase {
                 document = listOf(
                     Document(
                         isbn = "식별자",
-                        datetime = Date(1636642800), // 2021-11-12 00:00:00,
                         thumbnail = "썸네일 URL",
-                        contents = "컨텐츠",
-                        price = 14900,
-                        title = "미움받을 용기",
+                        title = "책 이름",
+                        authors = listOf("강현석", "노현석"),
+                        publisher = "출판사",
+                        datetime = Date(1636642800), // 2021-11-12 00:00:00,
+                        salePrice = 13410,
+                        price = 14900
                     )
                 )
             )
