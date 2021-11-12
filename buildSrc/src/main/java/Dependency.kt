@@ -35,6 +35,7 @@ object JUnit {
 
 object Mock {
     const val WEB_SERVER = "com.squareup.okhttp3:mockwebserver:4.9.2"
+    const val K = "io.mockk:mockk:1.12.0"
 }
 
 object Moshi {

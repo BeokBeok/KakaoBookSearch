@@ -41,5 +41,8 @@ dependencies {
         testImplementation(ASSERTJ_CORE)
     }
 
-    testImplementation(Mock.WEB_SERVER)
+    Mock.run {
+        testImplementation(WEB_SERVER)
+        testImplementation(K)
+    }
 }
