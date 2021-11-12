@@ -41,3 +41,7 @@ object Moshi {
     const val KOTLIN = "com.squareup.moshi:moshi-kotlin:$VERSION"
     const val KOTLIN_CODEGEN = "com.squareup.moshi:moshi-kotlin-codegen:$VERSION"
 }
+
+object Coroutines {
+    const val CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
+}
