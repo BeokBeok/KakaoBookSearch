@@ -21,7 +21,7 @@ internal data class DocumentVO(
             authors = model.authors.joinToString(),
             publisher = model.publisher,
             datetime = DateConverter.toYYYYMM(date = model.datetime),
-            price = model.salePrice,
+            price = if (model.salePrice < 0) model.price else model.salePrice,
             salePercent = model.salePercent()
         )
     }

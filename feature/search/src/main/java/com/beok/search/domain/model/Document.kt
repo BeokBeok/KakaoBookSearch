@@ -13,7 +13,7 @@ internal data class Document(
     val price: Int
 ) {
     fun salePercent(): Int {
-        if (price == 0 || salePrice == 0) return 0
+        if (price <= 0 || salePrice <= 0) return 0
         return ((1 - (salePrice.toFloat() / price.toFloat())) * 100).toInt()
     }
 }
