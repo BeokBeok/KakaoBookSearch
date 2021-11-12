@@ -1,6 +1,6 @@
-package com.beok.search.remote
+package com.beok.search.data.remote
 
-import com.beok.search.entity.BooksResponse
+import com.beok.search.data.entity.BooksResponse
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import java.io.File

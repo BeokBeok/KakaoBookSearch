@@ -1,6 +1,6 @@
-package com.beok.search.remote
+package com.beok.search.data.remote
 
-import com.beok.search.entity.BooksResponse
+import com.beok.search.data.entity.BooksResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
