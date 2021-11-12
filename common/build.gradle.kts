@@ -1,7 +1,7 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    kotlin("kapt")
+    id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
 }
 
@@ -10,6 +10,10 @@ android {
 
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        dataBinding = true
     }
 }
 
@@ -31,4 +35,12 @@ dependencies {
         api(ANDROID)
         kapt(COMPILER)
     }
+
+    AndroidX.run {
+        api(CORE_KTX)
+        api(APPCOMPAT)
+        api(CONSTRAINT_LAYOUT)
+    }
+
+    api(Google.MATERIAL)
 }

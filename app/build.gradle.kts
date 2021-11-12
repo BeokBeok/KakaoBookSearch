@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -22,19 +23,15 @@ android {
             )
         }
     }
+
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {
     implementation(project(":common"))
     implementation(project(":feature:search"))
-
-    AndroidX.run {
-        implementation(CORE_KTX)
-        implementation(APPCOMPAT)
-        implementation(CONSTRAINT_LAYOUT)
-    }
-
-    implementation(Google.MATERIAL)
 
     Navigation.run {
         implementation(FRAGMENT_KTX)
