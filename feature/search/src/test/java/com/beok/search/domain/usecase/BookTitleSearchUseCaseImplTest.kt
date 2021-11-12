@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test
 internal class BookTitleSearchUseCaseImplTest {
 
     private val bookSearchRepository: BookSearchRepository = BookSearchRepository.Fake()
-    private val useCase: BookTitleSearchUseCase<BookTitleSearchUseCaseImpl.Param> =
-        BookTitleSearchUseCase.Fake()
+    private val useCase: BookTitleSearchUseCase = BookTitleSearchUseCase.Fake()
 
     @Test
     fun `책 제목으로 검색합니다`() = runBlocking {
