@@ -7,4 +7,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "KakaoBookSearch"
 include ':app'
+include ':common'
 include ':feature:search'

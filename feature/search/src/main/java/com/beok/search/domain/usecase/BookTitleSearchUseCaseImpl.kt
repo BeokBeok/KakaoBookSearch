@@ -2,8 +2,9 @@ package com.beok.search.domain.usecase
 
 import com.beok.search.domain.model.Book
 import com.beok.search.domain.repository.BookSearchRepository
+import javax.inject.Inject
 
-internal class BookTitleSearchUseCaseImpl(
+internal class BookTitleSearchUseCaseImpl @Inject constructor(
     private val bookSearchRepository: BookSearchRepository
 ) : BookTitleSearchUseCase<BookTitleSearchUseCaseImpl.Param> {
 

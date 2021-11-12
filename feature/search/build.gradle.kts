@@ -17,18 +17,7 @@ android {
 }
 
 dependencies {
-    Network.run {
-        implementation(RETROFIT)
-        implementation(CONVERTER_MOSHI)
-    }
-
-    Moshi.run {
-        implementation(KOTLIN)
-        implementation(KOTLIN_CODEGEN)
-        implementation(ADAPTERS)
-    }
-
-    implementation(Coroutines.CORE)
+    implementation(project(":common"))
 
     JUnit.run {
         testImplementation(JUPITER_API)

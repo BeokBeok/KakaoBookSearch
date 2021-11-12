@@ -25,6 +25,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":common"))
+    implementation(project(":feature:search"))
+
     AndroidX.run {
         implementation(CORE_KTX)
         implementation(APPCOMPAT)
