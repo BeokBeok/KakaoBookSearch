@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("de.mannodermaus.android-junit5")
     id("dagger.hilt.android.plugin")
 }
 
@@ -25,22 +26,58 @@ android {
         }
     }
 
+    testOptions {
+        unitTests.isReturnDefaultValues = true
+    }
+
     buildFeatures {
         dataBinding = true
     }
 }
 
 dependencies {
-    implementation(project(":common"))
-    implementation(project(":feature:search"))
+    Network.run {
+        implementation(RETROFIT)
+        implementation(CONVERTER_MOSHI)
+    }
+
+    Moshi.run {
+        implementation(KOTLIN)
+        implementation(KOTLIN_CODEGEN)
+        implementation(ADAPTERS)
+    }
+
+    implementation(Coroutines.CORE)
+
+    implementation(Google.MATERIAL)
+
+    AndroidX.run {
+        implementation(CORE_KTX)
+        implementation(APPCOMPAT)
+        implementation(CONSTRAINT_LAYOUT)
+        implementation(FRAGMENT_KTX)
+        implementation(LIFECYCLE_RUNTIME_KTX)
+        testImplementation(CORE_TESTING)
+    }
 
     Hilt.run {
         implementation(ANDROID)
         kapt(COMPILER)
     }
 
-    Navigation.run {
-        implementation(FRAGMENT_KTX)
-        implementation(UI_KTX)
+    Glide.run {
+        implementation(CORE)
+        kapt(COMPILER)
+    }
+
+    JUnit.run {
+        testImplementation(JUPITER_API)
+        testRuntimeOnly(JUPITER_ENGINE)
+        testImplementation(ASSERTJ_CORE)
+    }
+
+    Mock.run {
+        testImplementation(WEB_SERVER)
+        testImplementation(K)
     }
 }
