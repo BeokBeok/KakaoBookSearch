@@ -27,4 +27,6 @@ dependencies {
         testRuntimeOnly(JUPITER_ENGINE)
         testImplementation(ASSERTJ_CORE)
     }
+
+    testImplementation(Mock.WEB_SERVER)
 }

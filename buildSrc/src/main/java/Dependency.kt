@@ -30,3 +30,7 @@ object JUnit {
 
     const val ASSERTJ_CORE = "org.assertj:assertj-core:3.21.0"
 }
+
+object Mock {
+    const val WEB_SERVER = "com.squareup.okhttp3:mockwebserver:4.9.2"
+}
