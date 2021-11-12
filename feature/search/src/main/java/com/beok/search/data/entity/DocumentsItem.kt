@@ -1,5 +1,7 @@
 package com.beok.search.data.entity
 
+import com.beok.search.data.DataToDomainMapper
+import com.beok.search.domain.model.Document
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import java.util.Date
@@ -42,4 +44,13 @@ internal data class DocumentsItem(
 
 	@Json(name="status")
 	val status: String? = null
-)
+) : DataToDomainMapper<Document> {
+
+	override fun toDto(): Document = Document(
+		thumbnail = thumbnail ?: "",
+		title = title ?: "",
+		contents = contents ?: "",
+		price = price ?: 0,
+		datetime = datetime ?: Date(0)
+	)
+}

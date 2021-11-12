@@ -5,7 +5,7 @@ import java.util.Date
 internal data class Document(
     val thumbnail: String,
     val title: String,
-    val content: String,
+    val contents: String,
     val price: Int,
-    val dateTime: Date
+    val datetime: Date
 )
