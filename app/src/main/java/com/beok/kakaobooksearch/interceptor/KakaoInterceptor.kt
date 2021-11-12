@@ -1,4 +1,4 @@
-package com.beok.common.interceptor
+package com.beok.kakaobooksearch.interceptor
 
 import okhttp3.Interceptor
 import okhttp3.Response

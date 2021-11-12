@@ -1,6 +1,6 @@
-package com.beok.common.di
+package com.beok.kakaobooksearch.di
 
-import com.beok.common.interceptor.KakaoInterceptor
+import com.beok.kakaobooksearch.interceptor.KakaoInterceptor
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
