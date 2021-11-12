@@ -30,5 +30,11 @@ dependencies {
         implementation(APPCOMPAT)
         implementation(CONSTRAINT_LAYOUT)
     }
+
     implementation(Google.MATERIAL)
+
+    Navigation.run {
+        implementation(FRAGMENT_KTX)
+        implementation(UI_KTX)
+    }
 }
