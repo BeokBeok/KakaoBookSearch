@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.RecyclerView
 import com.beok.common.base.BaseFragment
 import com.beok.common.base.BaseListAdapter
 import com.beok.search.BR
@@ -26,8 +27,28 @@ class BookSearchFragment : BaseFragment<FragmentBookSearchBinding>(R.layout.frag
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        showContent()
         setupUI()
+        setupListener()
+        showContent()
+    }
+
+    private fun setupListener() {
+        binding.rvBookSearchContent.addOnScrollListener(
+            object : RecyclerView.OnScrollListener() {
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    super.onScrolled(recyclerView, dx, dy)
+
+                    if (dy < 0) return
+                    val bottomDirection = 1
+                    if (!recyclerView.canScrollVertically(bottomDirection)) {
+                        viewModel.searchByBookName(
+                            bookName = binding.etBookSearch.text.toString(),
+                            isNext = true
+                        )
+                    }
+                }
+            }
+        )
     }
 
     private fun setupUI() {

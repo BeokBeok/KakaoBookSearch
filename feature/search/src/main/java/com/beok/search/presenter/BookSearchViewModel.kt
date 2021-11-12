@@ -19,10 +19,20 @@ internal class BookSearchViewModel @Inject constructor(
     private val _document = MutableLiveData<List<DocumentVO>>()
     val document: LiveData<List<DocumentVO>> get() = _document
 
+    private var page: Int = 1
+    private var isEnd: Boolean = false
+
     fun searchByBookName(
         bookName: String,
-        page: Int = 1
+        isNext: Boolean = false
     ) = viewModelScope.launch {
+        if (isEnd) return@launch
+        if (isNext) {
+            ++page
+        } else {
+            _document.value = emptyList()
+            page = 1
+        }
         bookTitleSearchUseCase
             .execute(
                 param = BookTitleSearchUseCaseImpl.Param(
@@ -31,10 +41,10 @@ internal class BookSearchViewModel @Inject constructor(
                 )
             )
             .onSuccess {
-                _document.value = it.document.map(DocumentVO::fromDomain)
-            }
-            .onFailure {
-
+                _document.value = (_document.value ?: emptyList()).plus(
+                    it.document.map(DocumentVO::fromDomain)
+                )
+                isEnd = it.isEnd
             }
     }
 }
