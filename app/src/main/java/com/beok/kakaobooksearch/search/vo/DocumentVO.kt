@@ -25,7 +25,7 @@ data class DocumentVO(
             datetime = DateConverter.toYYYYMM(date = model.datetime),
             price = if (model.salePrice < 0) model.price else model.salePrice,
             salePercent = model.salePercent(),
-            contents = model.contents ?: ""
+            contents = model.contents
         )
     }
 }

@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.beok.kakaobooksearch.domain.usecase.BookTitleSearchUseCase
 import com.beok.kakaobooksearch.domain.usecase.BookTitleSearchUseCaseImpl
 import com.beok.kakaobooksearch.search.vo.DocumentVO
-import com.beok.kakaobooksearch.util.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.launch

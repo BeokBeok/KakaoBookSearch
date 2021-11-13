@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.beok.kakaobooksearch.R
 import com.beok.kakaobooksearch.databinding.ActivityMainBinding
-import com.beok.kakaobooksearch.search.BookSearchFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
