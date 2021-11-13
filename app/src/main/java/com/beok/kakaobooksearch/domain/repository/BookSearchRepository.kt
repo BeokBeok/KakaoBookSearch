@@ -22,7 +22,8 @@ interface BookSearchRepository {
                         publisher = "인플루엔셜",
                         datetime = Date(1636642800), // 2021-11-12 00:00:00,
                         salePrice = 13410,
-                        price = 14900
+                        price = 14900,
+                        contents = "책 내용"
                     )
                 )
             )

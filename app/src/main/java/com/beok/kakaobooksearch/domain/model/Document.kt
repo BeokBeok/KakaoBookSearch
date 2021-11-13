@@ -10,7 +10,8 @@ data class Document(
     val publisher: String,
     val datetime: Date,
     val salePrice: Int,
-    val price: Int
+    val price: Int,
+    val contents: String
 ) {
     fun salePercent(): Int {
         if (price <= 0 || salePrice <= 0) return 0

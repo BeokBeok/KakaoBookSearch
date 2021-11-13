@@ -11,7 +11,8 @@ data class DocumentVO(
     val publisher: String,
     val datetime: String,
     val price: Int,
-    val salePercent: Int
+    val salePercent: Int,
+    val contents: String
 ) {
     companion object {
         fun fromDomain(model: Document): DocumentVO = DocumentVO(
@@ -22,7 +23,8 @@ data class DocumentVO(
             publisher = model.publisher,
             datetime = DateConverter.toYYYYMM(date = model.datetime),
             price = if (model.salePrice < 0) model.price else model.salePrice,
-            salePercent = model.salePercent()
+            salePercent = model.salePercent(),
+            contents = model.contents ?: ""
         )
     }
 }

@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.beok.kakaobooksearch.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -11,14 +15,74 @@
         android:layout_height="match_parent"
         android:background="@color/white">
 
-        <TextView
+        <CheckBox
+            android:id="@+id/cb_book_detail_like"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="헬로월드"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/iv_book_detail_thumbnail"
+            bind_imgSrc="@{viewModel.clickedItem.thumbnail}"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="60dp"
+            android:contentDescription="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/tv_book_detail_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:ellipsize="end"
+            android:text="@{viewModel.clickedItem.title}"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_book_detail_thumbnail"
+            tools:text="미움 받을 용기" />
+
+        <TextView
+            android:id="@+id/tv_book_detail_contents"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@{viewModel.clickedItem.contents}"
+            app:layout_constraintEnd_toEndOf="@id/tv_book_detail_title"
+            app:layout_constraintStart_toStartOf="@id/tv_book_detail_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_book_detail_title"
+            tools:text="자유롭고 행복한 삶을 위한 아들러의 가르침" />
+
+        <TextView
+            android:id="@+id/tv_book_detail_authors"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:text="@{viewModel.clickedItem.authors}"
+            app:layout_constraintEnd_toEndOf="@id/tv_book_detail_title"
+            app:layout_constraintStart_toStartOf="@id/tv_book_detail_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_book_detail_contents"
+            tools:text="기시미 이치로, 고가 후미타케" />
+
+        <TextView
+            android:id="@+id/tv_book_detail_publisher_and_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@{@string/publisher_and_date(viewModel.clickedItem.publisher, viewModel.clickedItem.datetime)}"
+            app:layout_constraintEnd_toEndOf="@id/tv_book_detail_title"
+            app:layout_constraintStart_toStartOf="@id/tv_book_detail_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_book_detail_authors"
+            tools:text="인플루엔셜 | 2014-11" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

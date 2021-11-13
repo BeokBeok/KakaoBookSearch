@@ -55,5 +55,6 @@ data class DocumentsItem(
 		datetime = datetime ?: Date(0),
 		salePrice = salePrice ?: 0,
 		price = price ?: 0,
+		contents = contents ?: ""
 	)
 }
