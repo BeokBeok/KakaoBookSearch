@@ -2,6 +2,7 @@ package com.beok.kakaobooksearch.search
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.addCallback
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
@@ -68,6 +69,13 @@ class BookSearchFragment : BaseFragment<FragmentBookSearchBinding>(R.layout.frag
                 }
             }
         )
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner) {
+            if (childFragmentManager.backStackEntryCount > 0) {
+                childFragmentManager.popBackStack()
+            } else {
+                activity?.finish()
+            }
+        }
     }
 
     private fun setupUI() {
