@@ -40,14 +40,13 @@ class BookSearchFragment : BaseFragment<FragmentBookSearchBinding>(R.layout.frag
 
     private fun setupObserver() {
         viewModel.clickedItem.observe(viewLifecycleOwner) {
-            val event = it.getContentIfNotHandled() ?: return@observe
             binding.clBookSearch.isVisible = false
             childFragmentManager
                 .beginTransaction()
                 .addToBackStack(null)
                 .replace(
                     R.id.cl_book_search_detail,
-                    BookDetailFragment.newInstance(item = event)
+                    BookDetailFragment.newInstance(item = it)
                 )
                 .commitAllowingStateLoss()
         }
