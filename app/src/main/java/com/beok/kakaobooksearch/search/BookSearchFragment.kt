@@ -40,6 +40,7 @@ class BookSearchFragment : BaseFragment<FragmentBookSearchBinding>(R.layout.frag
 
     private fun setupObserver() {
         viewModel.clickedItem.observe(viewLifecycleOwner) {
+            binding.clBookSearch.isVisible = false
             childFragmentManager
                 .beginTransaction()
                 .addToBackStack(null)
@@ -72,6 +73,7 @@ class BookSearchFragment : BaseFragment<FragmentBookSearchBinding>(R.layout.frag
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner) {
             if (childFragmentManager.backStackEntryCount > 0) {
                 childFragmentManager.popBackStack()
+                binding.clBookSearch.isVisible = true
             } else {
                 activity?.finish()
             }
