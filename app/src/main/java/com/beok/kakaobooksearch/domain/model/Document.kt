@@ -15,6 +15,7 @@ data class Document(
 ) {
     fun salePercent(): Int {
         if (price <= 0 || salePrice <= 0) return 0
-        return ((1 - (salePrice.toFloat() / price.toFloat())) * 100).toInt()
+        val salePercent = ((1 - (salePrice.toFloat() / price.toFloat())) * 100).toInt()
+        return if (salePercent > 0) salePercent else 0
     }
 }
