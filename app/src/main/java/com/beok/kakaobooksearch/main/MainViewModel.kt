@@ -2,8 +2,8 @@ package com.beok.kakaobooksearch.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.beok.kakaobooksearch.base.BaseViewModel
 import com.beok.kakaobooksearch.domain.usecase.BookTitleSearchUseCase
 import com.beok.kakaobooksearch.domain.usecase.BookTitleSearchUseCaseImpl
 import com.beok.kakaobooksearch.search.vo.DocumentVO
@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val bookTitleSearchUseCase: BookTitleSearchUseCase
-): ViewModel() {
+): BaseViewModel() {
 
     private val _document = MutableLiveData<List<DocumentVO>>()
     val document: LiveData<List<DocumentVO>> get() = _document
@@ -57,6 +57,10 @@ class MainViewModel @Inject constructor(
                     it.document.map(com.beok.kakaobooksearch.search.vo.DocumentVO::fromDomain)
                 )
                 isEnd = it.isEnd
+            }
+            .onFailure {
+                hideLoading()
+                error.value = it
             }
     }
 
