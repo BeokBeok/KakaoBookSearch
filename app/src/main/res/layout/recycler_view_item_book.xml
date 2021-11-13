@@ -18,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="4dp"
+        android:onClick="@{() -> viewModel.onClickedItem(item)}"
         android:padding="20dp">
 
         <ImageView

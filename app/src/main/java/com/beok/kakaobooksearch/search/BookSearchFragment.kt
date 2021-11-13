@@ -2,6 +2,7 @@ package com.beok.kakaobooksearch.search
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DiffUtil
@@ -11,6 +12,7 @@ import com.beok.kakaobooksearch.base.BaseListAdapter
 import com.beok.kakaobooksearch.BR
 import com.beok.kakaobooksearch.R
 import com.beok.kakaobooksearch.databinding.FragmentBookSearchBinding
+import com.beok.kakaobooksearch.detail.BookDetailFragment
 import com.beok.kakaobooksearch.ext.launchAndRepeatOnLifecycle
 import com.beok.kakaobooksearch.ext.textChanges
 import com.beok.kakaobooksearch.main.MainViewModel
@@ -32,6 +34,17 @@ class BookSearchFragment : BaseFragment<FragmentBookSearchBinding>(R.layout.frag
         setupUI()
         setupListener()
         showContent()
+        setupObserver()
+    }
+
+    private fun setupObserver() {
+        viewModel.clickedItem.observe(viewLifecycleOwner) {
+            childFragmentManager
+                .beginTransaction()
+                .addToBackStack(null)
+                .replace(binding.clBookSearchDetail.id, BookDetailFragment::class.java, null)
+                .commitAllowingStateLoss()
+        }
     }
 
     private fun setupBinding() {

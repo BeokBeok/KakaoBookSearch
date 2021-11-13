@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.beok.kakaobooksearch.domain.usecase.BookTitleSearchUseCase
 import com.beok.kakaobooksearch.domain.usecase.BookTitleSearchUseCaseImpl
 import com.beok.kakaobooksearch.search.vo.DocumentVO
+import com.beok.kakaobooksearch.util.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.launch
@@ -19,11 +20,18 @@ class MainViewModel @Inject constructor(
     private val _document = MutableLiveData<List<DocumentVO>>()
     val document: LiveData<List<DocumentVO>> get() = _document
 
+    private val _clickedItem = MutableLiveData<DocumentVO>()
+    val clickedItem: LiveData<DocumentVO> get() = _clickedItem
+
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> get() = _isLoading
 
     private var page: Int = 1
     private var isEnd: Boolean = false
+
+    fun onClickedItem(item: DocumentVO) {
+        _clickedItem.value = item
+    }
 
     fun searchByBookName(
         bookName: String,

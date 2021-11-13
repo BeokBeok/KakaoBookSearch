@@ -1,15 +1,19 @@
 package com.beok.kakaobooksearch.main
 
+import com.beok.kakaobooksearch.InstantExecutorExtension
 import com.beok.kakaobooksearch.domain.model.Book
 import com.beok.kakaobooksearch.domain.usecase.BookTitleSearchUseCase
 import com.beok.kakaobooksearch.domain.usecase.BookTitleSearchUseCaseImpl
+import com.beok.kakaobooksearch.search.vo.DocumentVO
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
 
+@ExtendWith(value = [InstantExecutorExtension::class])
 internal class MainViewModelTest {
 
     private val bookTitleSearchUseCase: BookTitleSearchUseCase = mockk(relaxed = true)
@@ -36,4 +40,20 @@ internal class MainViewModelTest {
         assertEquals(viewModel.document.value, mockResponse.document)
     }
 
+    @Test
+    fun `책 아이템을 클릭합니다`() {
+        val item = DocumentVO(
+            isbn = "",
+            thumbnail = "",
+            title = "",
+            authors = "",
+            publisher = "",
+            datetime = "",
+            price = 0,
+            salePercent = 0
+        )
+        viewModel.onClickedItem(item = item)
+
+        assertEquals(viewModel.clickedItem.value, item)
+    }
 }
