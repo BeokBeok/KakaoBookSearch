@@ -1,4 +1,4 @@
-package com.beok.common.binding.adapter
+package com.beok.kakaobooksearch.binding.adapter
 
 import android.view.View
 import androidx.core.view.isVisible
