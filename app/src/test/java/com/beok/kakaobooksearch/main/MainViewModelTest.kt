@@ -1,28 +1,24 @@
-package com.beok.kakaobooksearch.search
+package com.beok.kakaobooksearch.main
 
-import com.beok.kakaobooksearch.InstantExecutorExtension
 import com.beok.kakaobooksearch.domain.model.Book
 import com.beok.kakaobooksearch.domain.usecase.BookTitleSearchUseCase
 import com.beok.kakaobooksearch.domain.usecase.BookTitleSearchUseCaseImpl
-import com.beok.kakaobooksearch.search.BookSearchViewModel
 import io.mockk.coEvery
 import io.mockk.mockk
-import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.runBlocking
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 
-@ExtendWith(value = [InstantExecutorExtension::class])
-internal class BookSearchViewModelTest {
+internal class MainViewModelTest {
 
     private val bookTitleSearchUseCase: BookTitleSearchUseCase = mockk(relaxed = true)
-    private lateinit var viewModel: BookSearchViewModel
+    private lateinit var viewModel: MainViewModel
 
     @BeforeEach
     fun setup() {
         viewModel =
-            BookSearchViewModel(bookTitleSearchUseCase = bookTitleSearchUseCase)
+            MainViewModel(bookTitleSearchUseCase = bookTitleSearchUseCase)
     }
 
     @Test
@@ -39,4 +35,5 @@ internal class BookSearchViewModelTest {
 
         assertEquals(viewModel.document.value, mockResponse.document)
     }
+
 }

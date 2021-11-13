@@ -2,7 +2,7 @@ package com.beok.kakaobooksearch.search
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +13,7 @@ import com.beok.kakaobooksearch.R
 import com.beok.kakaobooksearch.databinding.FragmentBookSearchBinding
 import com.beok.kakaobooksearch.ext.launchAndRepeatOnLifecycle
 import com.beok.kakaobooksearch.ext.textChanges
+import com.beok.kakaobooksearch.main.MainViewModel
 import com.beok.kakaobooksearch.search.vo.DocumentVO
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -22,7 +23,7 @@ import kotlinx.coroutines.flow.filterNot
 @AndroidEntryPoint
 class BookSearchFragment : BaseFragment<FragmentBookSearchBinding>(R.layout.fragment_book_search) {
 
-    private val viewModel by viewModels<BookSearchViewModel>()
+    private val viewModel by activityViewModels<MainViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
