@@ -7,11 +7,11 @@
 
         <variable
             name="item"
-            type="com.beok.kakaobooksearch.search.presenter.vo.DocumentVO" />
+            type="com.beok.kakaobooksearch.search.vo.DocumentVO" />
 
         <variable
             name="viewModel"
-            type="com.beok.kakaobooksearch.search.presenter.BookSearchViewModel" />
+            type="com.beok.kakaobooksearch.search.BookSearchViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
