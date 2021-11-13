@@ -6,6 +6,7 @@ import com.beok.kakaobooksearch.domain.model.Document
 import com.beok.kakaobooksearch.domain.usecase.BookTitleSearchUseCase
 import com.beok.kakaobooksearch.domain.usecase.BookTitleSearchUseCaseImpl
 import com.beok.kakaobooksearch.presenter.search.vo.DocumentVO
+import com.beok.kakaobooksearch.util.Event
 import io.mockk.coEvery
 import io.mockk.mockk
 import java.util.Date
@@ -57,7 +58,7 @@ internal class MainViewModelTest {
         )
         viewModel.onClickedItem(item = item)
 
-        assertEquals(viewModel.clickedItem.value, item)
+        assertEquals(viewModel.clickedItem.value, Event(item))
     }
 
     @Test

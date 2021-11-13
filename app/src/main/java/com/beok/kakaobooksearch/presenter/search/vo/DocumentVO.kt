@@ -1,8 +1,11 @@
 package com.beok.kakaobooksearch.presenter.search.vo
 
-import com.beok.kakaobooksearch.util.DateConverter
+import android.os.Parcelable
 import com.beok.kakaobooksearch.domain.model.Document
+import com.beok.kakaobooksearch.util.DateConverter
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class DocumentVO(
     val isbn: String,
     val thumbnail: String,
@@ -14,7 +17,7 @@ data class DocumentVO(
     val salePercent: Int,
     val contents: String,
     val isLike: Boolean = false
-) {
+) : Parcelable {
     companion object {
         fun fromDomain(model: Document): DocumentVO = DocumentVO(
             isbn = model.isbn,

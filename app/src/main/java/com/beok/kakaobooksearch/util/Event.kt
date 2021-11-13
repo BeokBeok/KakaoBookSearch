@@ -10,6 +10,6 @@ class Event<out T>(
             null
         } else {
             hasBeenHandled = true
-            null
+            content
         }
 }
