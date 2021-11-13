@@ -57,7 +57,7 @@ internal class MainViewModelTest {
         )
         viewModel.onClickedItem(item = item)
 
-        assertEquals(viewModel.clickedItem.value, Event(item))
+        assertEquals(viewModel.clickedItem.value, item)
     }
 
     @Test
