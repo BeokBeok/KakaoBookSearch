@@ -4,4 +4,5 @@
     <string name="price_and_sale_percent">%1$d원 (%2$d%% 할인)</string>
     <string name="hint_book_name_input">책 이름을 입력하세요</string>
     <string name="msg_no_search_result">검색 결과가 없습니다</string>
+    <string name="msg_error">에러가 발생하였습니다.\n잠시 후 다시 시도해주세요</string>
 </resources>
