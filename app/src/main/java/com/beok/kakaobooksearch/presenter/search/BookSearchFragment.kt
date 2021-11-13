@@ -2,6 +2,7 @@ package com.beok.kakaobooksearch.presenter.search
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
@@ -38,8 +39,8 @@ class BookSearchFragment : BaseFragment<FragmentBookSearchBinding>(R.layout.frag
         setupObserver()
     }
 
-    private fun setupObserver() {
-        viewModel.clickedItem.observe(viewLifecycleOwner) {
+    private fun setupObserver() = with(viewModel) {
+        clickedItem.observe(viewLifecycleOwner) {
             binding.clBookSearch.isVisible = false
             childFragmentManager
                 .beginTransaction()
@@ -49,6 +50,15 @@ class BookSearchFragment : BaseFragment<FragmentBookSearchBinding>(R.layout.frag
                     BookDetailFragment.newInstance(item = it)
                 )
                 .commitAllowingStateLoss()
+        }
+        errorState.observe(viewLifecycleOwner) {
+            Toast
+                .makeText(
+                    requireContext(),
+                    getString(R.string.msg_error),
+                    Toast.LENGTH_SHORT
+                )
+                .show()
         }
     }
 
