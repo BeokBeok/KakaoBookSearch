@@ -30,7 +30,7 @@ interface BookSearchAPI {
                         datetime = Date(1636642800), // 2021-11-12 00:00:00,
                         thumbnail = "썸네일 URL",
                         translators = listOf("전경아"),
-                        contents = "컨텐츠",
+                        contents = "책 내용",
                         price = 14900,
                         isbn = "8996991341 9788996991342",
                         publisher = "인플루엔셜",

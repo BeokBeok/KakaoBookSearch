@@ -18,6 +18,16 @@ class BookDetailFragment : BaseFragment<FragmentBookDetailBinding>(R.layout.frag
         super.onViewCreated(view, savedInstanceState)
 
         setupBinding()
+        setupListener()
+    }
+
+    private fun setupListener() {
+        binding.cbBookDetailLike.setOnCheckedChangeListener { _, isChecked ->
+            viewModel.likeItem(
+                item = viewModel.clickedItem.value ?: return@setOnCheckedChangeListener,
+                isLike = isChecked
+            )
+        }
     }
 
     private fun setupBinding() {

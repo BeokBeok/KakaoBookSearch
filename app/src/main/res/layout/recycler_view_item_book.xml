@@ -22,10 +22,20 @@
         android:padding="20dp">
 
         <ImageView
+            bind_srcBookmark="@{item.isLike}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
             android:id="@+id/iv_item_book_thumbnail"
             bind_imgSrc="@{item.thumbnail}"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:layout_marginTop="10dp"
             android:contentDescription="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

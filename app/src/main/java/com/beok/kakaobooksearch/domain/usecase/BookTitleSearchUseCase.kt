@@ -17,11 +17,11 @@ interface BookTitleSearchUseCase {
                 isEnd = false,
                 document = listOf(
                     Document(
-                        isbn = "식별자",
+                        isbn = "8996991341 9788996991342",
                         thumbnail = "썸네일 URL",
-                        title = "책 이름",
-                        authors = listOf("강현석", "노현석"),
-                        publisher = "출판사",
+                        title = "미움받을 용기",
+                        authors = listOf("기시미 이치로", "고가 후미타케"),
+                        publisher = "인플루엔셜",
                         datetime = Date(1636642800), // 2021-11-12 00:00:00,
                         salePrice = 13410,
                         price = 14900,

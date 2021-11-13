@@ -12,7 +12,8 @@ data class DocumentVO(
     val datetime: String,
     val price: Int,
     val salePercent: Int,
-    val contents: String
+    val contents: String,
+    val isLike: Boolean = false
 ) {
     companion object {
         fun fromDomain(model: Document): DocumentVO = DocumentVO(

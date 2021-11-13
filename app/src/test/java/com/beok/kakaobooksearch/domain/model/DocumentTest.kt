@@ -16,7 +16,8 @@ internal class DocumentTest {
             publisher = "",
             datetime = Date(0),
             salePrice = 13410,
-            price = 14900
+            price = 14900,
+            contents = ""
         )
         val actual = document.salePercent()
 
@@ -33,7 +34,8 @@ internal class DocumentTest {
             publisher = "",
             datetime = Date(0),
             salePrice = -1,
-            price = 14900
+            price = 14900,
+            contents = ""
         )
         val actual = document.salePercent()
 

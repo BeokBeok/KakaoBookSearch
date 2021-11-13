@@ -17,7 +17,8 @@ internal class DocumentVOTest {
             publisher = "",
             datetime = Date(0),
             salePrice = 0,
-            price = 0
+            price = 0,
+            contents = ""
         )
         val actual = DocumentVO.fromDomain(model)
 

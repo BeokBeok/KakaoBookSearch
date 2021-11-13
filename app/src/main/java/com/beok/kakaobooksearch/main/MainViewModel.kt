@@ -61,6 +61,14 @@ class MainViewModel @Inject constructor(
             }
     }
 
+    fun likeItem(item: DocumentVO, isLike: Boolean) {
+        _document.value = _document.value
+            ?.toList()
+            ?.map {
+                if (it.isbn == item.isbn) it.copy(isLike = isLike) else it
+            }
+    }
+
     private fun hideLoading() {
         _isLoading.value = false
     }
