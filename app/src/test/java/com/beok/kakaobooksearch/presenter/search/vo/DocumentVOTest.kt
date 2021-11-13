@@ -1,4 +1,4 @@
-package com.beok.kakaobooksearch.search.vo
+package com.beok.kakaobooksearch.presenter.search.vo
 
 import com.beok.kakaobooksearch.domain.model.Document
 import java.util.Date

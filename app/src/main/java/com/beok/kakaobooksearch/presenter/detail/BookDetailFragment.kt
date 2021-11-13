@@ -1,4 +1,4 @@
-package com.beok.kakaobooksearch.detail
+package com.beok.kakaobooksearch.presenter.detail
 
 import android.os.Bundle
 import android.view.View
@@ -6,7 +6,7 @@ import androidx.fragment.app.activityViewModels
 import com.beok.kakaobooksearch.R
 import com.beok.kakaobooksearch.base.BaseFragment
 import com.beok.kakaobooksearch.databinding.FragmentBookDetailBinding
-import com.beok.kakaobooksearch.main.MainViewModel
+import com.beok.kakaobooksearch.presenter.main.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

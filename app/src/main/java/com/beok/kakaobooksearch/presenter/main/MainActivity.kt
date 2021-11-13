@@ -1,4 +1,4 @@
-package com.beok.kakaobooksearch.main
+package com.beok.kakaobooksearch.presenter.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

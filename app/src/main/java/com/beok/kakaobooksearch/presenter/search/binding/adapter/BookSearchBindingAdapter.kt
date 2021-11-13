@@ -1,4 +1,4 @@
-package com.beok.kakaobooksearch.search.binding.adapter
+package com.beok.kakaobooksearch.presenter.search.binding.adapter
 
 import android.widget.ImageView
 import androidx.core.content.ContextCompat

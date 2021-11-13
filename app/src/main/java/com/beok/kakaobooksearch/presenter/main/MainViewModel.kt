@@ -1,4 +1,4 @@
-package com.beok.kakaobooksearch.main
+package com.beok.kakaobooksearch.presenter.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.beok.kakaobooksearch.base.BaseViewModel
 import com.beok.kakaobooksearch.domain.usecase.BookTitleSearchUseCase
 import com.beok.kakaobooksearch.domain.usecase.BookTitleSearchUseCaseImpl
-import com.beok.kakaobooksearch.search.vo.DocumentVO
+import com.beok.kakaobooksearch.presenter.search.vo.DocumentVO
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.launch
@@ -54,7 +54,7 @@ class MainViewModel @Inject constructor(
             .onSuccess {
                 hideLoading()
                 _document.value = (_document.value ?: emptyList()).plus(
-                    it.document.map(com.beok.kakaobooksearch.search.vo.DocumentVO::fromDomain)
+                    it.document.map(com.beok.kakaobooksearch.presenter.search.vo.DocumentVO::fromDomain)
                 )
                 isEnd = it.isEnd
             }
