@@ -1,9 +1,12 @@
 package com.beok.kakaobooksearch.presenter.search.binding.adapter
 
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.beok.kakaobooksearch.R
+import com.beok.kakaobooksearch.util.DateConverter
+import java.util.Date
 
 @BindingAdapter("bind_srcBookmark")
 fun setSrcBookmark(view: ImageView, isLike: Boolean) {
@@ -17,4 +20,21 @@ fun setSrcBookmark(view: ImageView, isLike: Boolean) {
             }
         )
     )
+}
+
+@BindingAdapter(
+    value = [
+        "bind_setText_publisher",
+        "bind_setText_date"
+    ]
+)
+fun setPublisherAndDateText(view: TextView, publisher: String, date: Date) {
+    view.text = when {
+        publisher.isEmpty() -> DateConverter.toYYYYMM(date)
+        else -> view.context.getString(
+            R.string.publisher_and_date,
+            publisher,
+            DateConverter.toYYYYMM(date)
+        )
+    }
 }

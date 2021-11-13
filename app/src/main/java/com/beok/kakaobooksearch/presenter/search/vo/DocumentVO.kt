@@ -2,7 +2,7 @@ package com.beok.kakaobooksearch.presenter.search.vo
 
 import android.os.Parcelable
 import com.beok.kakaobooksearch.domain.model.Document
-import com.beok.kakaobooksearch.util.DateConverter
+import java.util.Date
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -12,7 +12,7 @@ data class DocumentVO(
     val title: String,
     val authors: String,
     val publisher: String,
-    val datetime: String,
+    val datetime: Date,
     val price: Int,
     val salePercent: Int,
     val contents: String,
@@ -25,7 +25,7 @@ data class DocumentVO(
             title = model.title,
             authors = model.authors.joinToString(),
             publisher = model.publisher,
-            datetime = DateConverter.toYYYYMM(date = model.datetime),
+            datetime = model.datetime,
             price = if (model.salePrice < 0) model.price else model.salePrice,
             salePercent = model.salePercent(),
             contents = model.contents

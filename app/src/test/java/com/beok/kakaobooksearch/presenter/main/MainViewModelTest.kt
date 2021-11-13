@@ -50,7 +50,7 @@ internal class MainViewModelTest {
             title = "",
             authors = "",
             publisher = "",
-            datetime = "",
+            datetime = Date(0),
             price = 0,
             salePercent = 0,
             contents = ""
@@ -70,7 +70,7 @@ internal class MainViewModelTest {
             title = "",
             authors = "",
             publisher = "",
-            datetime = "",
+            datetime = Date(0),
             price = 0,
             salePercent = 0,
             contents = "",
