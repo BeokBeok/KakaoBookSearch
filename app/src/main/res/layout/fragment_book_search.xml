@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.beok.kakaobooksearch.main.MainViewModel" />
+            type="com.beok.kakaobooksearch.presenter.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,9 +36,20 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_book_search_content"
+                bind_isVisible="@{!viewModel.document.isEmpty(), default=true}"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_book_search" />
+
+            <TextView
+                bind_isVisible="@{viewModel.document.isEmpty(), default=false}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/msg_no_search_result"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

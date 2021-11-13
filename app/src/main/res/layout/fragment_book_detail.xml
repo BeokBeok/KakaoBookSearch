@@ -6,33 +6,36 @@
     <data>
 
         <variable
-            name="viewModel"
-            type="com.beok.kakaobooksearch.main.MainViewModel" />
+            name="item"
+            type="com.beok.kakaobooksearch.presenter.search.vo.DocumentVO" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <CheckBox
-            android:id="@+id/cb_book_detail_like"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="@{viewModel.clickedItem.isLike}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <ImageView
             android:id="@+id/iv_book_detail_thumbnail"
-            bind_imgSrc="@{viewModel.clickedItem.thumbnail}"
+            bind_imgSrc="@{item.thumbnail}"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="40dp"
             android:contentDescription="@null"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/ic_launcher_background" />
+
+        <CheckBox
+            android:id="@+id/cb_book_detail_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/selector_bg_checkbox_bookmark"
+            android:button="@null"
+            android:checked="@{item.isLike}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_book_detail_thumbnail" />
 
         <TextView
             android:id="@+id/tv_book_detail_title"
@@ -41,7 +44,7 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="20dp"
             android:ellipsize="end"
-            android:text="@{viewModel.clickedItem.title}"
+            android:text="@{item.title}"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -54,7 +57,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@{viewModel.clickedItem.contents}"
+            android:text="@{item.contents}"
             app:layout_constraintEnd_toEndOf="@id/tv_book_detail_title"
             app:layout_constraintStart_toStartOf="@id/tv_book_detail_title"
             app:layout_constraintTop_toBottomOf="@id/tv_book_detail_title"
@@ -66,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ellipsize="end"
-            android:text="@{viewModel.clickedItem.authors}"
+            android:text="@{item.authors}"
             app:layout_constraintEnd_toEndOf="@id/tv_book_detail_title"
             app:layout_constraintStart_toStartOf="@id/tv_book_detail_title"
             app:layout_constraintTop_toBottomOf="@id/tv_book_detail_contents"
@@ -77,7 +80,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@{@string/publisher_and_date(viewModel.clickedItem.publisher, viewModel.clickedItem.datetime)}"
+            bind_setText_publisher="@{item.publisher}"
+            bind_setText_date="@{item.datetime}"
             app:layout_constraintEnd_toEndOf="@id/tv_book_detail_title"
             app:layout_constraintStart_toStartOf="@id/tv_book_detail_title"
             app:layout_constraintTop_toBottomOf="@id/tv_book_detail_authors"

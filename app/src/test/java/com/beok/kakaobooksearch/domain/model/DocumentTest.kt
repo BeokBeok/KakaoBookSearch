@@ -41,4 +41,22 @@ internal class DocumentTest {
 
         assertThat(actual).isEqualTo(0)
     }
+
+    @Test
+    fun `할인가가 판매가보다 높을 경우 할인율이 0%가 됩니다`() {
+        val document = Document(
+            isbn = "",
+            thumbnail = "",
+            title = "",
+            authors = listOf(),
+            publisher = "",
+            datetime = Date(0),
+            salePrice = 60450,
+            price = 55040,
+            contents = ""
+        )
+        val actual = document.salePercent()
+
+        assertThat(actual).isEqualTo(0)
+    }
 }

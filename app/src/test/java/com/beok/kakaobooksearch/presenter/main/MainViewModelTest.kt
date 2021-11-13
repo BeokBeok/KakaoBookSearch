@@ -1,11 +1,11 @@
-package com.beok.kakaobooksearch.main
+package com.beok.kakaobooksearch.presenter.main
 
 import com.beok.kakaobooksearch.InstantExecutorExtension
 import com.beok.kakaobooksearch.domain.model.Book
 import com.beok.kakaobooksearch.domain.model.Document
 import com.beok.kakaobooksearch.domain.usecase.BookTitleSearchUseCase
 import com.beok.kakaobooksearch.domain.usecase.BookTitleSearchUseCaseImpl
-import com.beok.kakaobooksearch.search.vo.DocumentVO
+import com.beok.kakaobooksearch.presenter.search.vo.DocumentVO
 import io.mockk.coEvery
 import io.mockk.mockk
 import java.util.Date
@@ -50,7 +50,7 @@ internal class MainViewModelTest {
             title = "",
             authors = "",
             publisher = "",
-            datetime = "",
+            datetime = Date(0),
             price = 0,
             salePercent = 0,
             contents = ""
@@ -62,6 +62,27 @@ internal class MainViewModelTest {
 
     @Test
     fun `즐겨찾기 버튼을 클릭합니다`() {
+        `책 리스트 데이터 설정`()
+
+        val item = DocumentVO(
+            isbn = "1",
+            thumbnail = "",
+            title = "",
+            authors = "",
+            publisher = "",
+            datetime = Date(0),
+            price = 0,
+            salePercent = 0,
+            contents = "",
+            isLike = false
+        )
+
+        viewModel.likeItem(item, true)
+
+        assertEquals(viewModel.document.value?.first()?.isLike, true)
+    }
+
+    private fun `책 리스트 데이터 설정`() {
         val bookName = "미움받을 용기"
         val mockResponse = Book(
             isEnd = false,
@@ -85,22 +106,5 @@ internal class MainViewModelTest {
                 .getOrNull()
         } returns mockResponse
         viewModel.searchByBookName(bookName = bookName)
-
-        val item = DocumentVO(
-            isbn = "1",
-            thumbnail = "",
-            title = "",
-            authors = "",
-            publisher = "",
-            datetime = "",
-            price = 0,
-            salePercent = 0,
-            contents = "",
-            isLike = false
-        )
-
-        viewModel.likeItem(item, true)
-
-        assertEquals(viewModel.document.value?.first()?.isLike, true)
     }
 }

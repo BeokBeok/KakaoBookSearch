@@ -3,7 +3,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fcv_main"
-        android:name="com.beok.kakaobooksearch.search.BookSearchFragment"
+        android:name="com.beok.kakaobooksearch.presenter.search.BookSearchFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

@@ -1,4 +1,4 @@
-package com.beok.kakaobooksearch.search
+package com.beok.kakaobooksearch.presenter.search
 
 import android.os.Bundle
 import android.view.View
@@ -13,11 +13,11 @@ import com.beok.kakaobooksearch.base.BaseListAdapter
 import com.beok.kakaobooksearch.BR
 import com.beok.kakaobooksearch.R
 import com.beok.kakaobooksearch.databinding.FragmentBookSearchBinding
-import com.beok.kakaobooksearch.detail.BookDetailFragment
+import com.beok.kakaobooksearch.presenter.detail.BookDetailFragment
 import com.beok.kakaobooksearch.ext.launchAndRepeatOnLifecycle
 import com.beok.kakaobooksearch.ext.textChanges
-import com.beok.kakaobooksearch.main.MainViewModel
-import com.beok.kakaobooksearch.search.vo.DocumentVO
+import com.beok.kakaobooksearch.presenter.main.MainViewModel
+import com.beok.kakaobooksearch.presenter.search.vo.DocumentVO
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.debounce
@@ -44,7 +44,10 @@ class BookSearchFragment : BaseFragment<FragmentBookSearchBinding>(R.layout.frag
             childFragmentManager
                 .beginTransaction()
                 .addToBackStack(null)
-                .replace(binding.clBookSearchDetail.id, BookDetailFragment::class.java, null)
+                .replace(
+                    R.id.cl_book_search_detail,
+                    BookDetailFragment.newInstance(item = it)
+                )
                 .commitAllowingStateLoss()
         }
     }
