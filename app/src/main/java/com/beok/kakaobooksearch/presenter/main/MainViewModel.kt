@@ -36,11 +36,7 @@ class MainViewModel @Inject constructor(
         bookName: String,
         isNext: Boolean = false
     ) = viewModelScope.launch {
-        if (!isNext) {
-            _document.value = emptyList()
-            page = 1
-            isEnd = false
-        }
+        clearDocument(isClear = !isNext)
         if (isEnd) return@launch
 
         showLoading()
@@ -54,7 +50,7 @@ class MainViewModel @Inject constructor(
             .onSuccess {
                 hideLoading()
                 _document.value = (_document.value ?: emptyList()).plus(
-                    it.document.map(com.beok.kakaobooksearch.presenter.search.vo.DocumentVO::fromDomain)
+                    it.document.map(DocumentVO::fromDomain)
                 )
                 isEnd = it.isEnd
             }
@@ -69,6 +65,14 @@ class MainViewModel @Inject constructor(
             ?.map {
                 if (it.isbn == item.isbn) it.copy(isLike = isLike) else it
             }
+    }
+
+    private fun clearDocument(isClear: Boolean) {
+        if (!isClear) return
+
+        _document.value = emptyList()
+        page = 1
+        isEnd = false
     }
 
     private fun hideLoading() {
