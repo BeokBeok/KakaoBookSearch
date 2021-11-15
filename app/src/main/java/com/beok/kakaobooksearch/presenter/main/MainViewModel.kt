@@ -35,7 +35,7 @@ class MainViewModel @Inject constructor(
     fun searchByBookName(
         bookName: String,
         isNext: Boolean = false
-    ) = viewModelScope.launch {
+    ) = viewModelScope.launch(coroutineExceptionHandler) {
         clearDocument(isClear = !isNext)
         if (isEnd) return@launch
 
