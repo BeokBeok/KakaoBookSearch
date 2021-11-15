@@ -18,6 +18,7 @@ data class DocumentVO(
     val contents: String,
     val isLike: Boolean = false
 ) : Parcelable {
+
     companion object {
         fun fromDomain(model: Document): DocumentVO = DocumentVO(
             isbn = model.isbn,
